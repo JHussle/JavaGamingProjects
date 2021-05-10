@@ -15,7 +15,7 @@ public class morningWakeUp {
         
 
         System.out.println("What is your name?");
-        firstName = user_input.next();
+        firstName = user_input.next(); //
 
         System.out.println("Good Morning " + firstName + "!");
         System.out.println(firstName + " .Would you like to start your day?");  
