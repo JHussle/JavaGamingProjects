@@ -10,6 +10,7 @@ public class morningWakeUp {
 
         String firstName;
         String answer;
+        String testString; // This line needs to be deleted
 
         
 
