@@ -12,7 +12,7 @@ public class textbasedadventuregame {
     Random rand = new Random();
 
     //Game Variables
-    String[] enemies = { "Skeleton", "Warewolf", "Golem", "Zombie", "Warrior"};
+    String[] enemies = { "Skeleton", "Warewolf", "Golem", "Zombie", "Warrior", "Assassin"};
     int maxEnemyHealth = 75;
     int maxEnemyMagic = 100;
     int enemyAttackDamage = 25;
@@ -79,7 +79,7 @@ public class textbasedadventuregame {
                 health -= magicTaken;
                 magic -= magicDealt;
 
-                if(magic > 1){
+                if(magic < 0){
                     System.out.println("\t> You do not have enough magic, you must take a magic potion");
                     break;
                 }
