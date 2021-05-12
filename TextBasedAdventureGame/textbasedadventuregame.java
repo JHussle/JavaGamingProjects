@@ -3,6 +3,8 @@ package TextBasedAdventureGame;
 import java.util.Random;
 import java.util.Scanner;
 
+import org.graalvm.compiler.graph.InputEdges;
+
 public class textbasedadventuregame {
     public static void main(String[] args) {
      //System objects
@@ -135,6 +137,23 @@ public class textbasedadventuregame {
                 numMagicPotion++;
                 System.out.println(" # The " + enemy + " dropped a magic potion #");
                 System.out.println(" # You now have " + numMagicPotion + " magic potion(s). #");
+            }
+
+            System.out.println("------------------------------");
+            System.out.println("What would you like to do now?");
+            System.out.println("1. Continue fighting");
+            System.out.println("2. Exit dungeon");
+
+            String input = in.nextLine();
+
+            while(!input.equals("1") && !input.equals("2")){
+                System.out.println("Invalid command");
+                input = in.nextLine();
+            }
+            if(input.equals("1")){
+                System.out.println("You continue on your adventure");
+            } else if (input.equals("2")) {
+                System.out.println("You exit the dungeon, to continue another day...");
             }
         }
     }
