@@ -3,7 +3,7 @@ package TextBasedAdventureGame;
 import java.util.Random;
 import java.util.Scanner;
 
-import org.graalvm.compiler.graph.InputEdges;
+
 
 public class textbasedadventuregame {
     public static void main(String[] args) {
@@ -19,16 +19,24 @@ public class textbasedadventuregame {
     int enemyMagicDamage = 20;
 
     //Player Variable
+    int armor = 100;
     int health = 100;
     int magic = 100;
     int attackDamage = 50;
     int magicAttackDamage = 25; // Magic attach power
+    int numArmorRepair = 3;
     int numHealthPotions = 5;
     int numMagicPotion = 4;
+    int armorPotionRepairAmount = 25;
     int healthPotionHealAmount = 30;
     int magicPotionHealAmount = 25;
+    int armorRepairDropChance = 15;
     int healtPotionDropChance = 50; // Percentage that a health potion will be dropped
     int magicPotionDropChance = 25; // Percentage of a magic potion will be dropped
+
+
+   
+
 
     boolean running = true;
 
@@ -53,7 +61,8 @@ public class textbasedadventuregame {
             System.out.println("\t2. Magic Attack");
             System.out.println("\t3. Drink health potion");
             System.out.println("\t4. Drink magic potion");
-            System.out.println("\t5. Run!!");
+            System.out.println("\t5. Repair armor");
+            System.out.println("\t6. Run!!");
 
             String input = in.nextLine();
             if (input.equals("1")){
@@ -89,6 +98,8 @@ public class textbasedadventuregame {
 
                 
 
+                
+
             } else if (input.equals("3")) {
                 if(numHealthPotions > 0) {
                     health += healthPotionHealAmount;
@@ -96,6 +107,11 @@ public class textbasedadventuregame {
                     System.out.println("\t> You drank a health potion, healing yourself for " + healthPotionHealAmount + "."
                                     + "\n\t> You know have " + health + " HP."
                                     + "\n\t> You have " + numHealthPotions + " health potions left. \n");
+                                     //Player validation for potion
+                                     // Want to add validation for health so that it cannot exceed 100.
+                                     if(health < 100) {
+                                         System.out.println("Your health is at its maxium");
+                                     }
                 } else {
                     System.out.println("\t> You have no health potions left! Defeat enemies for a chance to get one!");
                 }
@@ -110,8 +126,20 @@ public class textbasedadventuregame {
                 } else {
                     System.out.println("\t> You have no magic potions left! Defeat enemies for a chance to get one!");
                 }
-
-            } else if (input.equals("5")){
+                
+            } else if(input.equals("5")){
+                if(numArmorRepair > 0) {
+                    armor += armorPotionRepairAmount;
+                    numArmorRepair--;
+                    System.out.println("\t> You used, healing yourself for " + armorPotionRepairAmount + "."
+                                    + "\n\t> You know have " + health + " HP."
+                                    + "\n\t> You have " + numHealthPotions + " health potions left. \n");
+                                     //Player validation for potion
+                                     // Want to add validation for health so that it cannot exceed 100.
+                                     if(health < 100) {
+                                         System.out.println("Your health is at its maxium");
+                                     }
+            } else if (input.equals("6")){
                 System.out.println("\tYou run away from the " + enemy + "!");
                 continue GAME;
             } else {
@@ -138,6 +166,11 @@ public class textbasedadventuregame {
                 System.out.println(" # The " + enemy + " dropped a magic potion #");
                 System.out.println(" # You now have " + numMagicPotion + " magic potion(s). #");
             }
+            if(rand.nextInt(100) > armorRepairDropChance){
+                numArmorRepair++;
+                System.out.println(" # The " + enemy + " dropped a armor repair #");
+                System.out.println(" # You now have " + numArmorRepair + " armor repair(s). #");
+            }
 
             System.out.println("------------------------------");
             System.out.println("What would you like to do now?");
@@ -160,5 +193,6 @@ public class textbasedadventuregame {
         System.out.println("######################");
         System.out.println("# THANKS FOR PLAYING #");
         System.out.println("######################");
+        }
     }
 }
