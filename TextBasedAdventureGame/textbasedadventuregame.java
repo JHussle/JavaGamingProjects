@@ -75,14 +75,17 @@ public class textbasedadventuregame {
 
                 enemyHealth -= magicDealt;
                 health -= magicTaken;
+                magic -= magicDealt;
+
+                if(magic > 1){
+                    System.out.println("\t> You do not have enough magic, you must take a magic potion");
+                    break;
+                }
 
                 System.out.println("\t> Your spell towards the " + enemy + " for " + magicDealt + " magic damage.");
                 System.out.println("\t> You recieved " + magicTaken + " in retaliation ");
 
-                if(magic < 1){
-                    System.out.println("\t> You do not have enough magic, you must take a magic potion");
-                    break;
-                }
+                
 
             } else if (input.equals("3")) {
                 if(numHealthPotions > 0) {
@@ -113,6 +116,25 @@ public class textbasedadventuregame {
                 System.out.println("\tInvalid command");
             }
 
+        }
+            if(health < 1) {
+                System.out.println("You limp out og the dungeon, weak from battle");
+                break;
+            }
+            System.out.println("------------------------------");
+            System.out.println(" # " + enemy + " was defeated! #");
+            System.out.println(" # You have " + health + "HP left. #");
+            System.out.println(" # You have " + magic + "MP left. #");
+
+            if(rand.nextInt(100) > healtPotionDropChance){
+                numHealthPotions++;
+                System.out.println(" # The " + enemy + " dropped a health potion #");
+                System.out.println(" # You now have " + numHealthPotions + " health potion(s). #");
+            }
+            if(rand.nextInt(100) > magicPotionDropChance){
+                numMagicPotion++;
+                System.out.println(" # The " + enemy + " dropped a magic potion #");
+                System.out.println(" # You now have " + numMagicPotion + " magic potion(s). #");
             }
         }
     }
