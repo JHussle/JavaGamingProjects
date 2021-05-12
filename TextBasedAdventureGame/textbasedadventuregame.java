@@ -71,7 +71,7 @@ public class textbasedadventuregame {
 
                 if(armor > 0){ /* Armor isnt stopping at zero takes a negative value, this shouldnt be the case */
                     break;
-                } else if(armor == 0) {
+                } else if(armor < 0) {
                     health -= damageTaken;
                 }
 
