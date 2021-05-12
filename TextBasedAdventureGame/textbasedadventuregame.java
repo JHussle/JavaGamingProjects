@@ -37,6 +37,19 @@ public class textbasedadventuregame {
         int enemyHealth = rand.nextInt(maxEnemyHealth);
         String enemy = enemies[rand.nextInt(enemies.length)];
         System.out.println("\t# " + enemy + " appeared! #\n");   
+        
+        while(enemyHealth > 0) {
+            System.out.println("\tYour HP: " + health);
+            System.out.println("\tYour MP: " + magic);
+            System.out.println("\n\tWhat would you like to do?");
+            System.out.println("\t1. Attack");
+            System.out.println("\t2. Magic Attack");
+            System.out.println("\t3. Drink health potion");
+            System.out.println("\t4. Drink magic potion");
+            System.out.println("\t5. Run!!");
+
+            String input = in.nextLine();
+            }
         }
     }
 }
