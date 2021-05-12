@@ -154,7 +154,11 @@ public class textbasedadventuregame {
                 System.out.println("You continue on your adventure");
             } else if (input.equals("2")) {
                 System.out.println("You exit the dungeon, to continue another day...");
+                break;
             }
         }
+        System.out.println("######################");
+        System.out.println("# THANKS FOR PLAYING #");
+        System.out.println("######################");
     }
 }
