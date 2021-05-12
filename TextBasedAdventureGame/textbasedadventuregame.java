@@ -67,7 +67,13 @@ public class textbasedadventuregame {
                 int damageTaken = rand.nextInt(enemyAttackDamage);
 
                 enemyHealth -= damageDealt;
-                health -= damageTaken;
+                armor -= damageTaken;
+
+                if(armor > 0){ /* Armor isnt stopping at zero takes a negative value, this shouldnt be the case */
+                    break;
+                } else if(armor == 0) {
+                    health -= damageTaken;
+                }
 
                 System.out.println("\t> You strike the " + enemy + " for " + damageDealt + " damage.");
                 System.out.println("\t> You recieved " + damageTaken + " in retaliation ");
@@ -143,6 +149,7 @@ public class textbasedadventuregame {
             }
             System.out.println("------------------------------");
             System.out.println(" # " + enemy + " was defeated! #");
+            System.out.println(" # You have " + armor + "AHP left. #");
             System.out.println(" # You have " + health + "HP left. #");
             System.out.println(" # You have " + magic + "MP left. #");
 
