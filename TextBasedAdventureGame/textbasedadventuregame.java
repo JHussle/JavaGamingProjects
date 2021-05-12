@@ -156,6 +156,11 @@ public class textbasedadventuregame {
                 System.out.println(" # The " + enemy + " dropped a magic potion #");
                 System.out.println(" # You now have " + numMagicPotion + " magic potion(s). #");
             }
+            if(rand.nextInt(100) > armorRepairDropChance){
+                numMagicPotion++;
+                System.out.println(" # The " + enemy + " dropped a armor repair kit #");
+                System.out.println(" # You now have " + numArmorRepairs + " armor repair kit(s). #");
+            }
 
             System.out.println("------------------------------");
             System.out.println("What would you like to do now?");
