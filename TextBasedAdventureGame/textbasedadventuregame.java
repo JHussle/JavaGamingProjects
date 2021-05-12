@@ -59,7 +59,7 @@ public class textbasedadventuregame {
             System.out.println("\t3. Repair armor");
             System.out.println("\t4. Drink health potion");
             System.out.println("\t5. Drink magic potion");
-            System.out.println("\t5. Run!!");
+            System.out.println("\t6. Run!!");
 
             String input = in.nextLine();
             if (input.equals("1")){
