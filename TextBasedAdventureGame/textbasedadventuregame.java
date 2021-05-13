@@ -7,7 +7,11 @@ import java.util.Scanner;
 
 public class textbasedadventuregame {
     public static void main(String[] args) {
-     //System objects
+     //Constructor Class for type of characters that the user will be able to select
+     
+     
+     
+    //System objects
     Scanner in = new Scanner(System.in);
     Random rand = new Random();
 
