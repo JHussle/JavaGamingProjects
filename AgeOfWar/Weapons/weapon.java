@@ -6,4 +6,5 @@ public class weapon {
     public int defense;
     public int range;
     public int accuracy;
+    public int mana;
 }
